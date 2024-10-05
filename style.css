@@ -1,0 +1,281 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Light grey background */
+    color: #333; /* Dark text color for readability */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6; /* Improves readability */
+}
+
+/* Navigation bar styling */
+header {
+    background-color: #333; /* Dark background for header */
+    padding: 10px 0;
+}
+
+header nav ul {
+    list-style-type: none; /* Removes bullets from list */
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+header nav ul li {
+    display: inline; /* Horizontal list for menu */
+    margin-right: 20px;
+}
+
+header nav ul li a {
+    text-decoration: none; /* Removes underline from links */
+    color: white; /* White text for better contrast */
+    font-weight: bold;
+}
+
+header nav ul li a:hover {
+    color: #ff5722; /* Orange color on hover */
+}
+
+/* Home Section */
+#home {
+    background-color: #009688; /* Teal background */
+    color: white; /* White text */
+    padding: 60px 20px;
+    text-align: center;
+}
+
+#home h1 {
+    font-size: 3em; /* Larger font size */
+}
+
+#home p {
+    font-size: 1.2em;
+}
+
+/* About Section */
+#about {
+    background-color: white;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+#about img {
+    width: 150px; /* Fixed image size */
+    border-radius: 50%; /* Circular image */
+}
+
+.about-content {
+    max-width: 800px; /* Restrict width for better readability */
+    margin: auto;
+}
+
+#about h2 {
+    font-size: 2.5em;
+    color: #333;
+}
+
+#about p {
+    font-size: 1.2em;
+    line-height: 1.8;
+}
+
+/* Awards Section */
+#awards {
+    background-color: #f9f9f9;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.award-list {
+    max-width: 800px;
+    margin: auto;
+    text-align: left; /* Left-align for better readability */
+}
+
+.award-list p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+/* Projects Section */
+#projects {
+    background-color: white;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.project-list {
+    max-width: 1000px;
+    margin: auto;
+    display: grid; /* Grid layout for project cards */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 20px;
+}
+
+.project-card {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
+    text-align: left;
+}
+
+.project-card h3 {
+    font-size: 1.5em;
+    color: #333;
+}
+
+.project-card p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.project-card a {
+    display: block;
+    color: #009688;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.project-card a:hover {
+    color: #ff5722;
+}
+
+/* Coursework Section */
+#coursework {
+    background-color: #f9f9f9;
+    padding: 60px 20px;
+}
+
+.course-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+    gap: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.course-card {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /* Ensures all cards are the same height */
+}
+
+.course-card h3 {
+    font-size: 1.5em;
+    color: #333;
+}
+
+.course-card p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+
+/* Hobbies Section */
+#hobbies {
+    background-color: white;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.hobbies-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.hooby-card {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.hooby-card img {
+    width: 100%; /* Responsive image */
+    border-radius: 8px;
+    margin-top: 10px;
+}
+.hooby-card img {
+    width: 100%; /* Makes the image responsive */
+    max-width: 300px; /* Limits the maximum width */
+    border-radius: 8px; /* Adds rounded corners */
+    margin-top: 10px; /* Adds space above the image */
+    display: block; /* Ensures the image is treated as a block-level element */
+    margin-left: auto;
+    margin-right: auto; /* Centers the image horizontally */
+}
+
+
+/* Resume Section */
+#resume {
+    background-color: #f9f9f9;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+#resume a {
+    color: #009688;
+    font-weight: bold;
+}
+
+#resume a:hover {
+    color: #ff5722;
+}
+
+/* Blog Section */
+#blog {
+    background-color: white;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+/* Contact Section */
+#contact {
+    background-color: #f9f9f9;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+#contact a {
+    color: #009688;
+    font-weight: bold;
+}
+
+#contact a:hover {
+    color: #ff5722;
+}
+
+/* Footer Section */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Responsive Styling for smaller devices */
+@media (max-width: 768px) {
+    header nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .home-content h1 {
+        font-size: 2.5em;
+    }
+
+    .home-content p {
+        font-size: 1.1em;
+    }
+}
