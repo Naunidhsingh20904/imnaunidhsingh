@@ -1,282 +1,634 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Naunidh Singh | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- Navigation Bar -->
-    <header>
-      <nav>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About Me</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#resume">Resume</a></li>
-          <li><a href="#blog">Blog</a></li>
-          <li><a href="#contact">Contact</a></li>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+      <div class="loader">
+        <div class="loader-letters">
+          <span>N</span><span>S</span>
+        </div>
+        <div class="loader-bar-wrap">
+          <div class="loader-bar"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress-bar"></div>
+
+    <!-- Navigation -->
+    <header id="site-header">
+      <nav class="navbar">
+        <a href="#home" class="nav-logo">NS<span class="accent-dot">.</span></a>
+        <ul class="nav-links">
+          <li><a href="#home"       class="nav-link">Home</a></li>
+          <li><a href="#about"      class="nav-link">About</a></li>
+          <li><a href="#projects"   class="nav-link">Projects</a></li>
+          <li><a href="#awards"     class="nav-link">Awards</a></li>
+          <li><a href="#coursework" class="nav-link">Coursework</a></li>
+          <li><a href="#hobbies"    class="nav-link">Hobbies</a></li>
+          <li><a href="#resume"     class="nav-link">Resume</a></li>
+          <li><a href="#contact"    class="nav-link">Contact</a></li>
         </ul>
+        <div class="nav-actions">
+          <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme">
+            <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <button class="hamburger" id="hamburger" aria-label="Open menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
       </nav>
     </header>
 
-    <!-- Home Section -->
-    <section id="home">
-      <div class="home-content">
-        <h1>
-          Welcome to my portfolio! I’m glad you’re here to explore my work and
-          journey.
+    <!-- Mobile Drawer -->
+    <div id="mobile-drawer" class="mobile-drawer">
+      <button id="drawer-close" class="drawer-close" aria-label="Close menu">✕</button>
+      <ul>
+        <li><a href="#home"       class="drawer-link">Home</a></li>
+        <li><a href="#about"      class="drawer-link">About</a></li>
+        <li><a href="#projects"   class="drawer-link">Projects</a></li>
+        <li><a href="#awards"     class="drawer-link">Awards</a></li>
+        <li><a href="#coursework" class="drawer-link">Coursework</a></li>
+        <li><a href="#hobbies"    class="drawer-link">Hobbies</a></li>
+        <li><a href="#resume"     class="drawer-link">Resume</a></li>
+        <li><a href="#contact"    class="drawer-link">Contact</a></li>
+      </ul>
+    </div>
+    <div id="drawer-overlay" class="drawer-overlay"></div>
+
+    <!-- ═══════════════ HERO ═══════════════ -->
+    <section id="home" class="hero">
+      <div class="hero-bg">
+        <div class="hero-blob blob-1"></div>
+        <div class="hero-blob blob-2"></div>
+        <div class="hero-blob blob-3"></div>
+        <div class="hero-grid-overlay"></div>
+      </div>
+      <div class="hero-content">
+        <div class="hero-badge reveal-fade">
+          <span class="badge-dot"></span>
+          Open to Spring 2027 Co-op
+        </div>
+        <h1 class="hero-heading reveal-fade">
+          Hi, I'm <span class="gradient-text">Naunidh Singh</span>
         </h1>
-        <p>Software Developer | Business Strategist</p>
-      </div>
-    </section>
-
-    <!-- About Me Section -->
-    <section id="about">
-      <h2>Naunidh Singh</h2>
-      <div class="about-content">
-        <img src="image copy.png" alt="Photo of Naunidh Singh" />
-        <p>
-          I'm a Computer Science student at the University of Waterloo with a
-          strong interest in business and finance. Currently seeking Spring 2027
-          co-op opportunities in software development, data-driven business
-          roles
+        <p class="hero-role reveal-fade">
+          <span class="role-prefix">I'm a </span><span id="typed-text"></span><span class="typed-cursor">|</span>
         </p>
+        <p class="hero-desc reveal-fade">
+          CS student at the University of Waterloo, building at the intersection of technology and business strategy.
+        </p>
+        <div class="hero-actions reveal-fade">
+          <a href="#projects" class="btn btn-primary">View My Work</a>
+          <a href="singh_resume2.pdf" download class="btn btn-ghost">Download Resume</a>
+        </div>
+        <div class="hero-socials reveal-fade">
+          <a href="https://github.com/Naunidhsingh20904" target="_blank" class="social-pill" aria-label="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/naunidh-singh-196b25218/" target="_blank" class="social-pill" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a href="mailto:n36singh@uwaterloo.ca" class="social-pill" aria-label="Email">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Email
+          </a>
+        </div>
       </div>
-      <div class="Github">
-        <a target="_blank" href="https://github.com/Naunidhsingh20904"
-          >Github</a
-        >
-      </div>
+      <a href="#about" class="hero-scroll-hint" aria-label="Scroll down">
+        <div class="scroll-mouse">
+          <div class="scroll-wheel"></div>
+        </div>
+        <span>Scroll</span>
+      </a>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-      <h2>Projects, Case Analysis & Lot More!</h2>
-      <div class="project-list">
-        <div class="project-card">
-          <h3>Airbnb clone</h3>
-          <p>description goes here</p>
-          <p>
-            <strong>Technologies:</strong> HTML, CSS, Javascript, Express, Node,
-            Tailwind
-          </p>
+    <!-- ═══════════════ ABOUT ═══════════════ -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="section-tag">About Me</span>
+          <h2 class="section-title">Who I Am</h2>
         </div>
-
-        <div class="project-card">
-          <h3>Biquadris</h3>
-          <p>
-            Designed and implemented a turn-based, grid-based strategy game
-            inspired by Tetris, supporting multiple difficulty levels, special
-            effects, and competitive two-player gameplay. Focused on
-            object-oriented design, memory management, and extensibility.
-          </p>
-          <p><strong>Technologies:</strong> C++</p>
-          <p><strong>Framework:</strong> Standard C++ (OOP, STL, Makefiles)</p>
-        </div>
-
-        <div class="project-card">
-          <h3>Currency Calculator</h3>
-          <p>
-            Built a currency exchange calculator using free api by fawazahmed0
-          </p>
-          <p><strong>Technologies:</strong> HTML, CSS, Javascript.</p>
-        </div>
-        <div class="project-card">
-          <h3>Portfolio Website</h3>
-          <p>A personal website showcasing my skills, projects & lot more.</p>
-          <p><strong>Technologies:</strong> HTML, CSS</p>
-        </div>
-        <div class="project-card">
-          <h3>Financial Modeling Tool (coming soon)</h3>
-          <p>A data analysis tool for financial strategies.</p>
-          <p><strong>Technologies:</strong> Python, Excel</p>
-        </div>
-        <div class="project-card">
-          <h3>Wealthsimple Case analysis</h3>
-
-          <p>
-            Case Description: Developed and presented a strategic plan for
-            Wealthsimple to attract Gen Z investors through financial literacy
-            initiatives, estimated to generate over $11M, while managing team
-            challenges and ensuring smooth project execution.
-          </p>
-          <p>Download full case below:</p>
-          <a href="wealthsimple_fix.pdf" download> Download Livecase</a>
-          <br />
-          <a href="Wealthsimple presentation.pdf" download>
-            Download Presentation</a
-          >
-        </div>
-        <div class="project-card">
-          <h3>BDO Future Leaders challenge</h3>
-
-          <p>
-            Case Description: Analyzed data management challenges for
-            non-profits, proposed Microsoft Fabric as a cost-effective solution
-            with an estimated CAD 125 implementation cost, led a team of 5
-          </p>
-          <a href="Executive Summary - Group 4 - Lab 18 (1).pdf" download>
-            Download Executive Summary</a
-          >
-          <a
-            href="BDO Future Leaders Challenge - Group 4 - Lab 18 (1).pdf"
-            download
-          >
-            Download Presentation</a
-          >
-        </div>
-        <div class="project-card">
-          <h3>Critical Thinking Report</h3>
-          <p>Let's not forget to think Critically!</p>
-
-          <p>
-            The Shift from Shareholder Primacy to Stakeholderism: Evaluating
-            Corporate Purpose in the 21st Century.
-          </p>
-          <a href="critical_thinking_report.pdf"> Download Report</a>
-        </div>
-      </div>
-    </section>
-    <!-- Awards Section -->
-    <section id="awards">
-      <h2>Awards!</h2>
-      <div class="award-list">
-        <div class="award-card">
-          <p>
-            <strong>BDO Future Leaders Semi-Finalist:</strong> Selected among 44
-            out of 219 teams. <a href="BDO.pdf"> (Download Certificate)</a>
-          </p>
-          <p>
-            <strong>Laurier Entrance Scholarship:</strong> Awarded for achieving
-            93% in Grade 12.
-          </p>
+        <div class="about-grid">
+          <div class="about-photo-col reveal-left">
+            <div class="photo-frame">
+              <img src="image copy.png" alt="Naunidh Singh" class="profile-photo" />
+              <div class="photo-accent-ring"></div>
+              <div class="photo-accent-dot dot-tl"></div>
+              <div class="photo-accent-dot dot-br"></div>
+            </div>
+          </div>
+          <div class="about-text-col reveal-right">
+            <h3 class="about-name">Naunidh Singh</h3>
+            <p class="about-bio">
+              Computer Science student at the University of Waterloo focused on building practical, high-impact systems across software, business, and finance.
+            </p>
+            <p class="about-bio">
+              I enjoy turning real-world problems into scalable solutions from full-stack applications to data-driven tools and I'm currently seeking <strong>Spring 2026 co-op</strong> opportunities where I can contribute, learn fast, and ship meaningful work.
+            </p>
+            <div class="about-stats">
+              <div class="stat-box">
+                <span class="stat-num counter" data-target="8">0</span><span class="stat-num">+</span>
+                <p>Projects</p>
+              </div>
+              <div class="stat-box">
+                <span class="stat-num counter" data-target="2">0</span>
+                <p>Awards</p>
+              </div>
+              <div class="stat-box">
+                <span class="stat-num counter" data-target="219">0</span>
+                <p>Teams in BDO</p>
+              </div>
+            </div>
+            <div class="about-btns">
+              <a href="https://github.com/Naunidhsingh20904" target="_blank" class="btn btn-primary">GitHub Profile</a>
+              <a href="#contact" class="btn btn-outline">Get in Touch</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- course work section -->
-    <section id="coursework">
-      <h2>Course-work</h2>
-      <div class="course-list">
-        <div class="course-card">
-          <h3>1A</h3>
-          <p>Intro to Business Organization</p>
-          <p>Intro to Computer Science 1 (Dr.Racket)</p>
-          <p>Intro to Microeconomics</p>
-          <p>Calculus 1</p>
-          <p>Algebra</p>
+    <!-- ═══════════════ PROJECTS ═══════════════ -->
+    <section id="projects" class="section section-alt">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="section-tag">Portfolio</span>
+          <h2 class="section-title">Projects & Case Studies</h2>
+          <p class="section-sub">A blend of technical builds and strategic business analyses</p>
         </div>
-        <div class="course-card">
-          <h3>1B</h3>
-          <p>Functional Areas Of The Organization</p>
-          <p>Intro to Computer Science 2 (Python)</p>
-          <p>Intro to Macroeconomics</p>
-          <p>Calculus 2</p>
-          <p>Intro Academic Writing</p>
-          <p>Linear Algebra</p>
+
+        <div class="filter-bar reveal-up">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="technical">Technical</button>
+          <button class="filter-btn" data-filter="business">Business</button>
         </div>
-        <div class="course-card">
-          <h3>2A</h3>
-          <p>Intro to Financial Accounting</p>
-          <p>Financial Management 1</p>
-          <p>Organizational Behaviour</p>
-          <p>Calculus 2</p>
-          <p>Elementary Algorithm Design and Data Abstraction</p>
-          <p>Tools & Tech for Software Dev</p>
-        </div>
-        <div class="course-card">
-          <h3>2B</h3>
-          <p>Logic and computation</p>
-          <p>Object oriented programming</p>
-          <p>Organizational Behaviour C++</p>
-          <p>Computer Organization and Design</p>
-          <p>An Introduction to Rhetoric</p>
-        </div>
-        <div class="course-card">
-          <h3>3A</h3>
-          <p>Intro to Combinatorics</p>
-          <p>Application Development</p>
-          <p>Foundations of sequential programs</p>
-          <p>Foundations of Human Anatomy and Physiology</p>
+
+        <div class="project-grid">
+
+          <article class="project-card reveal-up" data-cat="technical">
+            <div class="pc-top">
+              <span class="pc-emoji">🌿</span>
+              <div class="pc-tags">
+                <span class="tag">TBD</span>
+              </div>
+            </div>
+            <h3>Go Touch Grass</h3>
+            <p>Description coming soon.</p>
+            <div class="pc-footer">
+              <span class="pc-type-badge">Technical</span>
+            </div>
+          </article>
+
+          <article class="project-card reveal-up" data-cat="technical">
+            <div class="pc-top">
+              <span class="pc-emoji">📉</span>
+              <div class="pc-tags">
+                <span class="tag">TBD</span>
+              </div>
+            </div>
+            <h3>Traderos</h3>
+            <p>Description coming soon.</p>
+            <div class="pc-footer">
+              <span class="pc-type-badge">Technical</span>
+            </div>
+          </article>
+
+          <article class="project-card reveal-up" data-cat="technical">
+            <div class="pc-top">
+              <span class="pc-emoji">📐</span>
+              <div class="pc-tags">
+                <span class="tag">TBD</span>
+              </div>
+            </div>
+            <h3>Quantitative Value Investing Strategy</h3>
+            <p>Description coming soon.</p>
+            <div class="pc-footer">
+              <span class="pc-type-badge">Quant</span>
+            </div>
+          </article>
+
+          <article class="project-card reveal-up" data-cat="technical">
+            <div class="pc-top">
+              <span class="pc-emoji">📋</span>
+              <div class="pc-tags">
+                <span class="tag">TBD</span>
+              </div>
+            </div>
+            <h3>ReportIt India</h3>
+            <p>Description coming soon.</p>
+            <div class="pc-footer">
+              <span class="pc-type-badge">Technical</span>
+            </div>
+          </article>
+
+          <article class="project-card reveal-up" data-cat="technical">
+            <div class="pc-top">
+              <span class="pc-emoji">🎮</span>
+              <div class="pc-tags">
+                <span class="tag">C++</span><span class="tag">OOP</span><span class="tag">STL</span><span class="tag">Makefiles</span>
+              </div>
+            </div>
+            <h3>Biquadris</h3>
+            <p>A turn-based strategy game inspired by Tetris. Two-player competitive play with multiple difficulty levels and special effects, built with OOP design and memory management.</p>
+            <div class="pc-footer">
+              <span class="pc-type-badge">Game Dev</span>
+            </div>
+          </article>
+
+          <article class="project-card reveal-up" data-cat="technical">
+            <div class="pc-top">
+              <span class="pc-emoji">🌐</span>
+              <div class="pc-tags">
+                <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+              </div>
+            </div>
+            <h3>Portfolio Website</h3>
+            <p>This very site — a personal portfolio showcasing my skills, projects, and journey as both a developer and business strategist.</p>
+            <div class="pc-footer">
+              <span class="pc-type-badge">Web Design</span>
+            </div>
+          </article>
+
+          <article class="project-card reveal-up" data-cat="business">
+            <div class="pc-top">
+              <span class="pc-emoji">📈</span>
+              <div class="pc-tags">
+                <span class="tag">Strategy</span><span class="tag">Finance</span><span class="tag">Gen Z</span>
+              </div>
+            </div>
+            <h3>Wealthsimple Case Analysis</h3>
+            <p>Strategic plan to attract Gen Z investors through financial literacy initiatives, estimating <strong>$11M+ revenue growth</strong>.</p>
+            <div class="pc-footer">
+              <span class="pc-type-badge">Business Strategy</span>
+              <div class="dl-links">
+                <a href="wealthsimple_fix.pdf" download class="dl-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  Case
+                </a>
+                <a href="Wealthsimple presentation.pdf" download class="dl-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  Slides
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal-up" data-cat="business">
+            <div class="pc-top">
+              <span class="pc-emoji">🏆</span>
+              <div class="pc-tags">
+                <span class="tag">Data Mgmt</span><span class="tag">MS Fabric</span><span class="tag">Non-profit</span>
+              </div>
+            </div>
+            <h3>BDO Future Leaders</h3>
+            <p>Analyzed data management challenges for non-profits and proposed Microsoft Fabric as a cost-effective solution at <strong>CAD $125K implementation cost</strong>, leading a team of 5. Our team was <strong>selected among 44 of 219 teams</strong> in a class-wide case study challenge.</p>
+            <div class="pc-footer">
+              <span class="pc-type-badge">Competition</span>
+              <div class="dl-links">
+                <a href="Executive Summary - Group 4 - Lab 18 (1).pdf" download class="dl-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  Summary
+                </a>
+                <a href="BDO Future Leaders Challenge - Group 4 - Lab 18 (1).pdf" download class="dl-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  Slides
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal-up" data-cat="business">
+            <div class="pc-top">
+              <span class="pc-emoji">📝</span>
+              <div class="pc-tags">
+                <span class="tag">Academic</span><span class="tag">Research</span><span class="tag">Ethics</span>
+              </div>
+            </div>
+            <h3>Critical Thinking Report</h3>
+            <p><em>"The Shift from Shareholder Primacy to Stakeholderism: Evaluating Corporate Purpose in the 21st Century."</em></p>
+            <div class="pc-footer">
+              <span class="pc-type-badge">Research</span>
+              <div class="dl-links">
+                <a href="critical_thinking_report.pdf" download class="dl-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  Report
+                </a>
+              </div>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
 
-    <!-- hobbies section -->
-    <section id="hobbies">
-      <h2>Hobbies!</h2>
-      <div class="hobbies-list">
-        <div class="hooby-card">
-          <h3>I enjoy presenting ideas!</h3>
-          <img src="present.jpeg" alt="naunidh presenting" />
+    <!-- ═══════════════ AWARDS ═══════════════ -->
+    <section id="awards" class="section">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="section-tag">Recognition</span>
+          <h2 class="section-title">Awards & Achievements</h2>
         </div>
-        <div class="hooby-card">
-          <h3>Soccer</h3>
-          <p>
-            I played soccer for my school varsity team and had won many awards
-            since middle school ;)
-          </p>
-          <p>Picture from my school magazine!</p>
-          <img src="medal.jpeg" alt="Naunidh receiving a medal on stage" />
-        </div>
-        <div class="hooby-card">
-          <h3>I'm a Gymfreak!!</h3>
-          <img src="gym.JPG" alt="Naunidh receiving a medal on stage" />
+        <div class="awards-grid">
+          <div class="award-card reveal-up">
+            <div class="award-icon-wrap">🏆</div>
+            <div class="award-body">
+              <h3>BDO Future Leaders</h3>
+              <span class="award-pill">Semi-Finalist</span>
+              <p>Selected among <strong>44 of 219 teams</strong> in a class-wide BDO case study challenge.</p>
+              <a href="BDO.pdf" download class="award-cert-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                View Certificate
+              </a>
+            </div>
+          </div>
+          <div class="award-card reveal-up">
+            <div class="award-icon-wrap">🎓</div>
+            <div class="award-body">
+              <h3>Laurier Entrance Scholarship</h3>
+              <span class="award-pill">Academic Excellence</span>
+              <p>Awarded for achieving a <strong>93% average</strong> in Grade 12, recognizing outstanding academics.</p>
+            </div>
+          </div>
+          <div class="award-card reveal-up">
+            <div class="award-icon-wrap">⚽</div>
+            <div class="award-body">
+              <h3>Varsity Soccer Awards</h3>
+              <span class="award-pill">Athletics</span>
+              <p>Won multiple athletic awards since middle school as a key member of the school varsity soccer team.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Resume Section -->
-    <section id="resume">
-      <h2>Resume</h2>
-      <p>Download my latest resume below:</p>
-      <a href="singh_resume2.pdf" download>Download Resume</a>
+    <!-- ═══════════════ COURSEWORK ═══════════════ -->
+    <section id="coursework" class="section section-alt">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="section-tag">Education</span>
+          <h2 class="section-title">Coursework</h2>
+          <p class="section-sub">University of Waterloo — Computer Science &amp; Business</p>
+        </div>
+
+        <div class="term-tabs reveal-up">
+          <button class="term-tab active" data-term="1A">1A</button>
+          <button class="term-tab" data-term="1B">1B</button>
+          <button class="term-tab" data-term="2A">2A</button>
+          <button class="term-tab" data-term="2B">2B</button>
+          <button class="term-tab" data-term="3A">3A</button>
+        </div>
+
+        <div class="term-panels">
+
+          <div class="term-panel active" id="panel-1A">
+            <div class="course-grid">
+              <div class="course-chip"><span>🏢</span> Intro to Business Organization</div>
+              <div class="course-chip"><span>💻</span> Intro to CS 1 (DrRacket)</div>
+              <div class="course-chip"><span>📉</span> Intro to Microeconomics</div>
+              <div class="course-chip"><span>∫</span> Calculus 1</div>
+              <div class="course-chip"><span>🔢</span> Algebra</div>
+            </div>
+          </div>
+
+          <div class="term-panel" id="panel-1B">
+            <div class="course-grid">
+              <div class="course-chip"><span>🏢</span> Functional Areas of the Organization</div>
+              <div class="course-chip"><span>🐍</span> Intro to CS 2 (Python)</div>
+              <div class="course-chip"><span>📈</span> Intro to Macroeconomics</div>
+              <div class="course-chip"><span>∫</span> Calculus 2</div>
+              <div class="course-chip"><span>✍️</span> Intro Academic Writing</div>
+              <div class="course-chip"><span>🔢</span> Linear Algebra</div>
+            </div>
+          </div>
+
+          <div class="term-panel" id="panel-2A">
+            <div class="course-grid">
+              <div class="course-chip"><span>💰</span> Intro to Financial Accounting</div>
+              <div class="course-chip"><span>📊</span> Financial Management 1</div>
+              <div class="course-chip"><span>👥</span> Organizational Behaviour</div>
+              <div class="course-chip"><span>∫</span> Calculus 2</div>
+              <div class="course-chip"><span>🔍</span> Algorithm Design & Data Abstraction</div>
+              <div class="course-chip"><span>🛠️</span> Tools &amp; Tech for Software Dev</div>
+            </div>
+          </div>
+
+          <div class="term-panel" id="panel-2B">
+            <div class="course-grid">
+              <div class="course-chip"><span>🧠</span> Logic and Computation</div>
+              <div class="course-chip"><span>🧩</span> Object Oriented Programming (C++)</div>
+              <div class="course-chip"><span>👥</span> Organizational Behaviour</div>
+              <div class="course-chip"><span>🖥️</span> Computer Organization and Design</div>
+              <div class="course-chip"><span>🗣️</span> Introduction to Rhetoric</div>
+            </div>
+          </div>
+
+          <div class="term-panel" id="panel-3A">
+            <div class="course-grid">
+              <div class="course-chip"><span>🔢</span> Intro to Combinatorics</div>
+              <div class="course-chip"><span>📱</span> Application Development</div>
+              <div class="course-chip"><span>⚙️</span> Foundations of Sequential Programs</div>
+              <div class="course-chip"><span>🧬</span> Human Anatomy and Physiology</div>
+              <div class="course-chip"><span>🤝</span> BET 430 Sales Fundamentals</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </section>
 
-    <!-- Blog Section (Optional) -->
-    <section id="blog">
-      <h2>Blog</h2>
-      <p>
-        Coming soon! I’ll be writing about tech trends, case studies, and
-        insights from my projects.
-      </p>
+    <!-- ═══════════════ HOBBIES ═══════════════ -->
+    <section id="hobbies" class="section">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="section-tag">Beyond Work</span>
+          <h2 class="section-title">Hobbies &amp; Interests</h2>
+        </div>
+        <div class="hobbies-grid">
+
+          <div class="hobby-card reveal-up">
+            <div class="hobby-img-wrap">
+              <img src="present.jpeg" alt="Naunidh presenting" loading="lazy" />
+              <div class="hobby-overlay">
+                <p>Public speaking &amp; pitching ideas to live audiences</p>
+              </div>
+            </div>
+            <div class="hobby-info">
+              <h3>Public Speaking</h3>
+              <p>I love presenting ideas and communicating complex concepts with clarity.</p>
+            </div>
+          </div>
+
+          <div class="hobby-card reveal-up">
+            <div class="hobby-img-wrap">
+              <img src="medal.jpeg" alt="Naunidh receiving a medal" loading="lazy" />
+              <div class="hobby-overlay">
+                <p>Varsity soccer player &amp; multi-award winner</p>
+              </div>
+            </div>
+            <div class="hobby-info">
+              <h3>Soccer</h3>
+              <p>Competed on the school varsity team, winning multiple awards since middle school.</p>
+            </div>
+          </div>
+
+          <div class="hobby-card reveal-up">
+            <div class="hobby-img-wrap">
+              <img src="gym.JPG" alt="Naunidh at the gym" loading="lazy" />
+              <div class="hobby-overlay">
+                <p>Consistent gym-goer — physical discipline drives mental performance</p>
+              </div>
+            </div>
+            <div class="hobby-info">
+              <h3>Fitness</h3>
+              <p>A dedicated gym enthusiast who believes physical discipline fuels mental clarity.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-      <h2>Contact Me</h2>
-
-      <p>
-        Email: <a href="mailto:n36singh@uwaterloo.ca">n36singh@uwaterloo.ca</a>
-      </p>
-
-      <p>Phone: <a href="tel:+12892420715">+1 (289) 242-0715</a></p>
-      <p>
-        LinkedIn:
-        <a href="https://www.linkedin.com/in/naunidh-singh-196b25218/">
-          Connect</a
-        >
-      </p>
-
-      <!-- <form action="submit-form.php" method="post">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-            
-            <button type="submit">Send</button>
-        </form> -->
+    <!-- ═══════════════ RESUME ═══════════════ -->
+    <section id="resume" class="section resume-banner">
+      <div class="container">
+        <div class="resume-inner reveal-up">
+          <div class="resume-text">
+            <span class="section-tag">Resume</span>
+            <h2>Want to know more?</h2>
+            <p>Download my latest resume to see my full experience, skills, and qualifications.</p>
+          </div>
+          <a href="singh_resume2.pdf" download class="btn btn-primary btn-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Resume
+          </a>
+        </div>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-      <p>&copy; 2024 Naunidh Singh. All Rights Reserved.</p>
+    <!-- ═══════════════ CONTACT ═══════════════ -->
+    <section id="contact" class="section section-alt">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="section-tag">Contact</span>
+          <h2 class="section-title">Let's Connect</h2>
+          <p class="section-sub">Have an opportunity or just want to chat? I'd love to hear from you.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info-col reveal-left">
+            <div class="contact-info-card">
+              <div class="contact-row">
+                <div class="contact-icon-box">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div>
+                  <p class="ci-label">Email</p>
+                  <a href="mailto:n36singh@uwaterloo.ca" class="ci-value">n36singh@uwaterloo.ca</a>
+                </div>
+              </div>
+              <div class="contact-row">
+                <div class="contact-icon-box">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div>
+                  <p class="ci-label">Phone</p>
+                  <a href="tel:+12892420715" class="ci-value">+1 (289) 242-0715</a>
+                </div>
+              </div>
+              <div class="contact-row">
+                <div class="contact-icon-box">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </div>
+                <div>
+                  <p class="ci-label">LinkedIn</p>
+                  <a href="https://www.linkedin.com/in/naunidh-singh-196b25218/" target="_blank" class="ci-value">naunidh-singh</a>
+                </div>
+              </div>
+              <div class="contact-row">
+                <div class="contact-icon-box">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </div>
+                <div>
+                  <p class="ci-label">GitHub</p>
+                  <a href="https://github.com/Naunidhsingh20904" target="_blank" class="ci-value">Naunidhsingh20904</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form-col reveal-right">
+            <form class="contact-form" id="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="contact-name">Name</label>
+                  <input type="text" id="contact-name" name="name" placeholder="Your name" required />
+                </div>
+                <div class="form-group">
+                  <label for="contact-email">Email</label>
+                  <input type="email" id="contact-email" name="email" placeholder="your@email.com" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="contact-subject">Subject</label>
+                <input type="text" id="contact-subject" name="subject" placeholder="What's this about?" required />
+              </div>
+              <div class="form-group">
+                <label for="contact-message">Message</label>
+                <textarea id="contact-message" name="message" rows="5" placeholder="Tell me more..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">
+                Send Message
+                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              </button>
+              <p class="form-success" id="form-success">Message sent! I'll get back to you soon.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ FOOTER ═══════════════ -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-inner">
+          <a href="#home" class="footer-logo">NS<span class="accent-dot">.</span></a>
+          <p class="footer-copy">&copy; 2025 Naunidh Singh. All Rights Reserved.</p>
+          <div class="footer-socials">
+            <a href="https://github.com/Naunidhsingh20904" target="_blank" aria-label="GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/naunidh-singh-196b25218/" target="_blank" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="mailto:n36singh@uwaterloo.ca" aria-label="Email">
+              <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
     </footer>
+
+    <!-- Back to Top -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+
+    <script src="script.js"></script>
   </body>
 </html>
